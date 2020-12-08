@@ -24,6 +24,11 @@
 	   <input type="mobilenumber" id="mobilenumber" name="mobilenumber">
 	  <error-output class="mobilenumber-error" for="mobilenumber"></error-output>
 	  </div>
+	  <div>
+           <label for="password">Password Input Type:</label>
+           <input type="password" id="password" name="password">
+          <error-output class="password" for="password"></error-output>
+          </div>
         <div>
             <button>Submit</button>
         </div>
@@ -55,6 +60,15 @@
             mobilenumberError.textContent = "";
         else
             mobilenumberError.textContent = "Mobile Number is incorect";
+        });
+	const password= document.querySelector('#password')
+        const passwordError = document.querySelector('.password-error')
+        password.addEventListener('input',function() {
+        let passwordRegex = new RegExp(/^.{8,}$/);
+        if(passwordRegex.test(password.value))
+            passwordError.textContent = "";
+        else
+            passwordError.textContent = "Password is incorrect";
         });
     </script>
 </body>
